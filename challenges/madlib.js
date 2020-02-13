@@ -1,26 +1,56 @@
-console.log('madlib script has loaded');
+console.log("madlib script has loaded");
 
 // write this function!
-function madlib() {
-
+function madlib(userNoun, userVerb, userAdj) {
+  let nounSize = userNoun.length;
+  let verbSize = userVerb.length;
+  if (nounSize > verbSize) {
+    return `the ${userAdj} ${userNoun} loves to ${userVerb} in the summer`;
+  } else {
+    return `when the ${userAdj} rain falls, ${userNoun} begins to ${userVerb}`;
+  }
 }
 
 // if the noun is longer than the verb
-console.assert(madlib('horse', 'walk', 'red') === 'the red horse loves to walk in the summer', 'first');
-console.assert(madlib('schoolbus', 'drive', 'flat') === 'the flat schoolbus loves to drive in the summer', 'second');
-console.assert(madlib('steel', 'melt', 'smooth') === 'the smooth steel loves to melt in the summer', 'third');
+console.assert(
+  madlib("horse", "walk", "red") ===
+    "the red horse loves to walk in the summer",
+  "first"
+);
+console.assert(
+  madlib("schoolbus", "drive", "flat") ===
+    "the flat schoolbus loves to drive in the summer",
+  "second"
+);
+console.assert(
+  madlib("steel", "melt", "smooth") ===
+    "the smooth steel loves to melt in the summer",
+  "third"
+);
 
 // else the verb is longer than the noun
-console.assert(madlib('steel', 'freeze', 'smooth') === 'when the smooth rain falls, steel begins to freeze', 'fourth');
-console.assert(madlib('mice', 'wander', 'orange') === 'when the orange rain falls, mice begins to wander', 'fifth');
-console.assert(madlib('car', 'migrate', 'scratchy') === 'when the scratchy rain falls, car begins to migrate', 'sixth');
 
+console.assert(
+  madlib("steel", "freeze", "smooth") ===
+    "when the smooth rain falls, steel begins to freeze",
+  "fourth"
+);
+console.assert(
+  madlib("mice", "wander", "orange") ===
+    "when the orange rain falls, mice begins to wander",
+  "fifth"
+);
+console.assert(
+  madlib("car", "migrate", "scratchy") ===
+    "when the scratchy rain falls, car begins to migrate",
+  "sixth"
+);
 
 function madlibHandler() {
   // prompt the user for a noun, verb and adjective
-  const userNoun = prompt('enter a noun');
-  const userVerb = prompt('enter a verb');
-  const userAdj = prompt('enter an adjective');
+  const userNoun = prompt("enter a noun");
+  const userVerb = prompt("enter a verb");
+  const userAdj = prompt("enter an adjective");
 
   // perform core logic
   const result = madlib(userNoun, userVerb, userAdj);
@@ -29,11 +59,13 @@ function madlibHandler() {
   alert(result);
 
   // log action for the developer
-  console.log('\n--- madlib ---');
-  console.log('userNoun:', '(' + typeof userNoun + '),', userNoun);
-  console.log('userVerb:', '(' + typeof userVerb + '),', userVerb);
-  console.log('userAdj:', '(' + typeof userAdj + '),', userAdj);
-  console.log('result:', '(' + typeof result + '),', result);
+  console.log("\n--- madlib ---");
+  console.log("userNoun:", "(" + typeof userNoun + "),", userNoun);
+  console.log("userVerb:", "(" + typeof userVerb + "),", userVerb);
+  console.log("userAdj:", "(" + typeof userAdj + "),", userAdj);
+  console.log("result:", "(" + typeof result + "),", result);
 }
 
-document.getElementById('madlib-button').addEventListener('click', madlibHandler);
+document
+  .getElementById("madlib-button")
+  .addEventListener("click", madlibHandler);
